@@ -14,11 +14,11 @@ class MDEmptyList<T> implements MDList<T> {
 
     @Override
     public T getHead() {
-        throw new RuntimeException("Head from Empty list.");
+        throw new MDListException("Head from Empty list.");
     }
 
     @Override
     public MDList<T> getTail() {
-        throw new RuntimeException("Tail from Empty list.");
+        throw new MDListException("Tail from Empty list.");
     }
 }
