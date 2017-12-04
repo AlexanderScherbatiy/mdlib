@@ -36,4 +36,19 @@ public class MDListsListTest {
         String elem2 = "elem2";
         checkTwoElements(elem1, elem2, MDLists.list(elem1, MDLists.list(elem2)));
     }
+
+    @Test
+    public void testDeepEquals() {
+
+        MDListTestUtils.checkDeepEquals(MDLists.list(), MDLists.list(), true);
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem"), MDLists.list(), false);
+
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem"), MDLists.list("elem"), true);
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem1"), MDLists.list("elem2"), false);
+
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem2", "elem1"), MDLists.list("elem2", "elem1"), true);
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem1", "elem2"), MDLists.list("elem2", "elem1"), false);
+        MDListTestUtils.checkDeepEquals(MDLists.list("elem"), MDLists.list("elem1", "elem2"), false);
+    }
+
 }

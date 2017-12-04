@@ -1,6 +1,8 @@
 package multidimensional.datatype.list;
 
-public interface MDList<T> {
+import multidimensional.datatype.deep.DeepStructure;
+
+public interface MDList<T> extends DeepStructure<MDList<T>> {
 
     boolean isEmpty();
 

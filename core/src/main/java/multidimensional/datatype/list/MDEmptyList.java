@@ -21,4 +21,9 @@ class MDEmptyList<T> implements MDList<T> {
     public MDList<T> getTail() {
         throw new MDListException("Tail from Empty list.");
     }
+
+    @Override
+    public boolean deepEquals(MDList<T> other) {
+        return other.isEmpty();
+    }
 }

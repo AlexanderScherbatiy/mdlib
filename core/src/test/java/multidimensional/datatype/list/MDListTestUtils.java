@@ -36,4 +36,12 @@ public class MDListTestUtils {
         assertEquals(elem2, list.getTail().getHead());
         assertTrue(list.getTail().getTail().isEmpty());
     }
+
+    public static <T> void checkDeepEquals(MDList<T> list1, MDList<T> list2, boolean equals) {
+        assertEquals(true, list1.deepEquals(list1));
+        assertEquals(true, list2.deepEquals(list2));
+
+        assertEquals(equals, list1.deepEquals(list2));
+        assertEquals(equals, list2.deepEquals(list1));
+    }
 }
