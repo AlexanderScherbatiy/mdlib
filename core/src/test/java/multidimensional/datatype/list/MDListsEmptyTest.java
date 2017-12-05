@@ -10,4 +10,9 @@ public class MDListsEmptyTest {
     public void isEmpty() {
         checkEmpty(MDLists.empty());
     }
+
+    public void filter() {
+        checkEmpty(MDLists.empty().filter(elem -> false));
+        checkEmpty(MDLists.empty().filter(elem -> true));
+    }
 }

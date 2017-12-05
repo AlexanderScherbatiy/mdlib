@@ -8,12 +8,18 @@ import static multidimensional.datatype.list.MDListTestUtils.checkEmpty;
 public class MDEmptyListTest {
 
     @Test
-    public void testEmptyList() {
+    public void empty() {
         checkEmpty(new MDEmptyList<>());
     }
 
     @Test
-    public void testDeepEquals() {
+    public void deepEquals() {
         checkDeepEquals(new MDEmptyList<>(), new MDEmptyList<>(), true);
+    }
+
+    @Test
+    public void filter() {
+        checkEmpty(new MDEmptyList<>().filter(e -> false));
+        checkEmpty(new MDEmptyList<>().filter(e -> true));
     }
 }

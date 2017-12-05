@@ -2,6 +2,8 @@ package multidimensional.datatype.list;
 
 import multidimensional.datatype.deep.DeepStructure;
 
+import java.util.function.Predicate;
+
 class MDListImpl<T> implements MDList<T> {
 
     private final T head;
@@ -25,6 +27,24 @@ class MDListImpl<T> implements MDList<T> {
     @Override
     public MDList<T> getTail() {
         return tail;
+    }
+
+    @Override
+    public MDList<T> filter(Predicate<T> predicate) {
+        return filter(predicate, this);
+    }
+
+    private static <U> MDList<U> filter(Predicate<U> predicate, MDList<U> list) {
+
+        if (list.isEmpty()) return list;
+
+        U elem = list.getHead();
+
+        if (predicate.test(elem)) {
+            return new MDListImpl<>(elem, filter(predicate, list.getTail()));
+        } else {
+            return filter(predicate, list.getTail());
+        }
     }
 
     @Override

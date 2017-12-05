@@ -2,6 +2,8 @@ package multidimensional.datatype.list;
 
 import multidimensional.datatype.deep.DeepStructure;
 
+import java.util.function.Predicate;
+
 public interface MDList<T> extends DeepStructure<MDList<T>> {
 
     boolean isEmpty();
@@ -9,4 +11,6 @@ public interface MDList<T> extends DeepStructure<MDList<T>> {
     T getHead();
 
     MDList<T> getTail();
+
+    MDList<T> filter(Predicate<T> predicate);
 }

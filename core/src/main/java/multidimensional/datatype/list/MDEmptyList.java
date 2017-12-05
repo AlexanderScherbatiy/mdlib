@@ -1,6 +1,6 @@
 package multidimensional.datatype.list;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import java.util.function.Predicate;
 
 class MDEmptyList<T> implements MDList<T> {
 
@@ -25,5 +25,10 @@ class MDEmptyList<T> implements MDList<T> {
     @Override
     public boolean deepEquals(MDList<T> other) {
         return other.isEmpty();
+    }
+
+    @Override
+    public MDList<T> filter(Predicate<T> predicate) {
+        return this;
     }
 }
