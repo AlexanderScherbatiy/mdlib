@@ -1,5 +1,7 @@
 package multidimensional.datatype.list;
 
+import multidimensional.datatype.MDDatatypeException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -14,13 +16,13 @@ public class MDListTestUtils {
         try {
             list.getHead();
             fail("Missing exception: getHead()");
-        } catch (MDListException ignore) {
+        } catch (MDDatatypeException ignore) {
         }
 
         try {
             list.getTail();
             fail("Missing exception: getTail()");
-        } catch (MDListException ignore) {
+        } catch (MDDatatypeException ignore) {
         }
     }
 

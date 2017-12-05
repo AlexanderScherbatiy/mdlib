@@ -1,5 +1,7 @@
 package multidimensional.datatype.list;
 
+import multidimensional.datatype.MDDatatypeException;
+
 import java.util.function.Predicate;
 
 class MDEmptyList<T> implements MDList<T> {
@@ -14,12 +16,12 @@ class MDEmptyList<T> implements MDList<T> {
 
     @Override
     public T getHead() {
-        throw new MDListException("Head from Empty list.");
+        throw new MDDatatypeException("Head from Empty list.");
     }
 
     @Override
     public MDList<T> getTail() {
-        throw new MDListException("Tail from Empty list.");
+        throw new MDDatatypeException("Tail from Empty list.");
     }
 
     @Override
