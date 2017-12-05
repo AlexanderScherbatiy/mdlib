@@ -1,5 +1,7 @@
 package multidimensional.datatype.list;
 
+import multidimensional.datatype.deep.DeepStructure;
+
 class MDListImpl<T> implements MDList<T> {
 
     private final T head;
@@ -33,8 +35,19 @@ class MDListImpl<T> implements MDList<T> {
 
         while (!list1.isEmpty() && !list2.isEmpty()) {
 
-            // TBD: Check deepEquals
-            if (!list1.getHead().equals(list2.getHead())) {
+            T elem1 = list1.getHead();
+            T elem2 = list2.getHead();
+
+            if (elem1 instanceof DeepStructure && elem2 instanceof DeepStructure) {
+
+                DeepStructure deepElem1 = (DeepStructure) elem1;
+                DeepStructure deepElem2 = (DeepStructure) elem2;
+
+                if (!deepElem1.deepEquals(deepElem2)) {
+                    return false;
+                }
+
+            } else if (!elem1.equals(elem2)) {
                 return false;
             }
 
