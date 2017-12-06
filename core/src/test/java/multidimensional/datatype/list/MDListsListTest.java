@@ -2,6 +2,7 @@ package multidimensional.datatype.list;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static multidimensional.datatype.list.MDLists.*;
 import static multidimensional.datatype.list.MDListTestUtils.*;
 
@@ -36,6 +37,12 @@ public class MDListsListTest {
         String elem1 = "elem1";
         String elem2 = "elem2";
         checkTwoElements(elem1, elem2, list(elem1, list(elem2)));
+    }
+
+    @Test
+    public void iterator() {
+        String[] elems = {"one", "two", "three"};
+        checkIterator(list(elems), elems);
     }
 
     @Test

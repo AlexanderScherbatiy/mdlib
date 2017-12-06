@@ -1,7 +1,9 @@
 package multidimensional.datatype.list;
 
 import multidimensional.datatype.MDDatatypeException;
+import org.junit.Test;
 
+import static multidimensional.datatype.list.MDLists.list;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -38,6 +40,15 @@ public class MDListTestUtils {
         assertEquals(elem2, list.getTail().getHead());
         assertTrue(list.getTail().getTail().isEmpty());
     }
+
+    public static <T> void checkIterator(MDList<T> list, T... elems) {
+        int i = 0;
+        for (T elem : list) {
+            assertEquals(elems[i++], elem);
+        }
+        assertEquals(elems.length, i);
+    }
+
 
     public static <T> void checkDeepEquals(MDList<T> list1, MDList<T> list2, boolean equals) {
         assertEquals(true, list1.deepEquals(list1));

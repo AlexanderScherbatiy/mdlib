@@ -2,6 +2,7 @@ package multidimensional.datatype.list;
 
 import multidimensional.datatype.MDDatatypeException;
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
 class MDEmptyList<T> implements MDList<T> {
@@ -32,5 +33,20 @@ class MDEmptyList<T> implements MDList<T> {
     @Override
     public MDList<T> filter(Predicate<T> predicate) {
         return this;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public T next() {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 }
