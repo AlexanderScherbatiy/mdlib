@@ -27,16 +27,16 @@ public class MDListsListTest {
     }
 
     @Test
-    public void headTailOneElem() {
+    public void constructOneElem() {
         String elem = "elem";
-        checkOneElement(elem, list(elem, empty()));
+        checkOneElement(elem, construct(elem, empty()));
     }
 
     @Test
-    public void headTailTwoElems() {
+    public void constructTwoElems() {
         String elem1 = "elem1";
         String elem2 = "elem2";
-        checkTwoElements(elem1, elem2, list(elem1, list(elem2)));
+        checkTwoElements(elem1, elem2, construct(elem1, list(elem2)));
     }
 
     @Test
@@ -96,5 +96,21 @@ public class MDListsListTest {
                 list(list(list("elem1"), list("elem2")), list(list("elem3"), list("elem4"))),
                 list(list(list("elem1"), list("elem2")), list(list("elem3"), list("elem4"))),
                 true);
+    }
+
+    @Test
+    public void deepString() {
+        checkDeepString(list(), "()");
+        checkDeepString(list("one"), "(one)");
+        checkDeepString(list("one", "two"), "(one, two)");
+        checkDeepString(list("one", "two", "three"), "(one, two, three)");
+    }
+
+    @Test
+    public void deepDeepString() {
+        checkDeepString(list(list("one")), "((one))");
+        checkDeepString(list(list("one"), "two"), "((one), two)");
+        checkDeepString(list("one", list("two")), "(one, (two))");
+        checkDeepString(list(list("one"), list("two")), "((one), (two))");
     }
 }

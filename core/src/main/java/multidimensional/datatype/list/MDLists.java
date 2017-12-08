@@ -10,7 +10,7 @@ public class MDLists {
         return list(0, values);
     }
 
-    public static <T> MDList<T> list(T value, MDList<T> list) {
+    public static <T> MDList<T> construct(T value, MDList<T> list) {
         return new MDListImpl<>(value, list);
     }
 

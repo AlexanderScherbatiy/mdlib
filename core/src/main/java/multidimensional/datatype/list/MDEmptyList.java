@@ -49,4 +49,9 @@ class MDEmptyList<T> implements MDList<T> {
             }
         };
     }
+
+    @Override
+    public String toDeepString() {
+        return "()";
+    }
 }

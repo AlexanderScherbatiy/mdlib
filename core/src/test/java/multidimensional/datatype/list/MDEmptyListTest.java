@@ -2,9 +2,7 @@ package multidimensional.datatype.list;
 
 import org.junit.Test;
 
-import static multidimensional.datatype.list.MDListTestUtils.checkDeepEquals;
-import static multidimensional.datatype.list.MDListTestUtils.checkEmpty;
-import static multidimensional.datatype.list.MDListTestUtils.checkIterator;
+import static multidimensional.datatype.list.MDListTestUtils.*;
 import static multidimensional.datatype.list.MDLists.list;
 
 public class MDEmptyListTest {
@@ -28,5 +26,10 @@ public class MDEmptyListTest {
     @Test
     public void deepEquals() {
         checkDeepEquals(new MDEmptyList<>(), new MDEmptyList<>(), true);
+    }
+
+    @Test
+    public void deepString() {
+        checkDeepString(new MDEmptyList<>(), "()");
     }
 }

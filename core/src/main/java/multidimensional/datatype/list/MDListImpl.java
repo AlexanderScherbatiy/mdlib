@@ -98,4 +98,26 @@ class MDListImpl<T> implements MDList<T> {
 
         return list1.isEmpty() && list2.isEmpty();
     }
+
+    @Override
+    public String toDeepString() {
+
+        StringBuilder builder = new StringBuilder();
+        builder.append('(');
+
+        for (T elem : this) {
+            if (elem instanceof DeepStructure) {
+                builder.append(((DeepStructure) elem).toDeepString());
+            } else {
+                builder.append(elem);
+            }
+            builder.append(", ");
+        }
+
+        int length = builder.length();
+        builder.delete(length - 2, length - 0);
+        builder.append(')');
+
+        return builder.toString();
+    }
 }
