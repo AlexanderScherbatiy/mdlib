@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static multidimensional.datatype.list.MDLists.*;
 import static multidimensional.datatype.list.MDListTestUtils.*;
 
-public class MDListsListTest {
+public class MDListsTest {
 
     @Test
     public void isEmpty() {

@@ -1,18 +1,17 @@
 package multidimensional.datatype.tree;
 
-
-import multidimensional.datatype.list.MDList;
-import multidimensional.datatype.list.MDLists;
 import org.junit.Test;
 
+import static multidimensional.datatype.list.MDLists.*;
+import static multidimensional.datatype.tree.MDTrees.*;
 import static multidimensional.datatype.tree.MDTreeTestUtils.*;
 
-public class MDTreeImplTest {
+public class MDTreesTest {
 
     @Test
     public void oneLevelTree() {
         String elem = "elem";
-        checkOneLevel(elem, new MDTreeImpl<>(elem));
+        checkOneLevel(elem, tree(elem));
     }
 
     @Test
@@ -21,8 +20,10 @@ public class MDTreeImplTest {
         String child1 = "child1";
         String child2 = "child2";
 
-        MDTree<String> tree = new MDTreeImpl<>(parent,
-                MDLists.list(new MDTreeImpl<>(child1), new MDTreeImpl<>(child2)));
+        MDTree<String> tree = tree(parent, list(tree(child1), tree(child2)));
+        checkTwoLevels(parent, tree, child1, child2);
+
+        tree = tree(parent, tree(child1), tree(child2));
         checkTwoLevels(parent, tree, child1, child2);
     }
 }
