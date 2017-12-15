@@ -100,17 +100,17 @@ public class MDListsTest {
 
     @Test
     public void deepString() {
-        checkDeepString(list(), "()");
-        checkDeepString(list("one"), "(one)");
-        checkDeepString(list("one", "two"), "(one, two)");
-        checkDeepString(list("one", "two", "three"), "(one, two, three)");
+        checkToDeepString(list(), "()");
+        checkToDeepString(list("one"), "(one)");
+        checkToDeepString(list("one", "two"), "(one, two)");
+        checkToDeepString(list("one", "two", "three"), "(one, two, three)");
     }
 
     @Test
     public void deepDeepString() {
-        checkDeepString(list(list("one")), "((one))");
-        checkDeepString(list(list("one"), "two"), "((one), two)");
-        checkDeepString(list("one", list("two")), "(one, (two))");
-        checkDeepString(list(list("one"), list("two")), "((one), (two))");
+        checkToDeepString(list(list("one")), "((one))");
+        checkToDeepString(list(list("one"), "two"), "((one), two)");
+        checkToDeepString(list("one", list("two")), "(one, (two))");
+        checkToDeepString(list(list("one"), list("two")), "((one), (two))");
     }
 }

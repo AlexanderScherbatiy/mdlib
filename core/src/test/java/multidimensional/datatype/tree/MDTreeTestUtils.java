@@ -43,4 +43,8 @@ public class MDTreeTestUtils {
         }
         assertEquals(children.length, i);
     }
+
+    public static <T> void checkToDeepString(MDTree<T> tree, String deepString) {
+        assertEquals(deepString, tree.toDeepString());
+    }
 }

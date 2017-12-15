@@ -3,7 +3,6 @@ package multidimensional.datatype.list;
 import org.junit.Test;
 
 import static multidimensional.datatype.list.MDListTestUtils.*;
-import static multidimensional.datatype.list.MDLists.list;
 
 public class MDEmptyListTest {
 
@@ -30,6 +29,6 @@ public class MDEmptyListTest {
 
     @Test
     public void deepString() {
-        checkDeepString(new MDEmptyList<>(), "()");
+        checkToDeepString(new MDEmptyList<>(), "()");
     }
 }

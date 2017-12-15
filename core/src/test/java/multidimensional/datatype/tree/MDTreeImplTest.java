@@ -25,4 +25,13 @@ public class MDTreeImplTest {
                 MDLists.list(new MDTreeImpl<>(child1), new MDTreeImpl<>(child2)));
         checkTwoLevels(parent, tree, child1, child2);
     }
+
+    @Test
+    public void deepToString() {
+        checkToDeepString(new MDTreeImpl<>("elem"), "(elem)");
+
+        MDTree<String> tree = new MDTreeImpl<>("parent",
+                new MDTreeImpl<>("child1"), new MDTreeImpl<>("child2"));
+        checkToDeepString(tree, "(parent((child1), (child2)))");
+    }
 }

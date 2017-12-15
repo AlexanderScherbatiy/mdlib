@@ -11,4 +11,10 @@ public class MDEmptyTreeTest {
     public void empty() {
         checkEmpty(new MDEmptyTree<>());
     }
+
+
+    @Test
+    public void deepToString() {
+        checkToDeepString(new MDEmptyTree<>(), "()");
+    }
 }

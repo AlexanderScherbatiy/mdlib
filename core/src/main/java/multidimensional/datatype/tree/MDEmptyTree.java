@@ -19,4 +19,15 @@ public class MDEmptyTree<T> implements MDTree<T> {
     public MDList<MDTree<T>> getChildren() {
         throw new MDDatatypeException("Get children from Empty tree.");
     }
+
+
+    @Override
+    public boolean deepEquals(MDTree<T> other) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String toDeepString() {
+        return "()";
+    }
 }

@@ -58,7 +58,7 @@ public class MDListTestUtils {
         assertEquals(equals, list2.deepEquals(list1));
     }
 
-    public static <T> void checkDeepString(MDList<T> list, String result) {
+    public static <T> void checkToDeepString(MDList<T> list, String result) {
         assertEquals(result, list.toDeepString());
     }
 }
