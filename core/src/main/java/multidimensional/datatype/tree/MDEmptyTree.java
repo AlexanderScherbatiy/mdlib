@@ -2,6 +2,7 @@ package multidimensional.datatype.tree;
 
 import multidimensional.datatype.MDDatatypeException;
 import multidimensional.datatype.list.MDList;
+import multidimensional.datatype.list.MDLists;
 
 public class MDEmptyTree<T> implements MDTree<T> {
 
@@ -22,8 +23,13 @@ public class MDEmptyTree<T> implements MDTree<T> {
 
 
     @Override
+    public MDList<MDTree<T>> getPath(MDTree<T> node) {
+        return node.isEmpty() ? MDLists.list(this) : null;
+    }
+
+    @Override
     public boolean deepEquals(MDTree<T> other) {
-        throw new UnsupportedOperationException();
+        return other.isEmpty();
     }
 
     @Override

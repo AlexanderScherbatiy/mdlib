@@ -13,4 +13,7 @@ public interface MDList<T> extends Iterable<T>, DeepStructure<MDList<T>> {
     MDList<T> getTail();
 
     MDList<T> filter(Predicate<T> predicate);
+
+    MDList<T> reverse();
+
 }

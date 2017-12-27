@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static multidimensional.datatype.list.MDLists.*;
 import static multidimensional.datatype.list.MDListTestUtils.*;
+import static org.junit.Assert.assertTrue;
 
 public class MDListsTest {
 
@@ -37,6 +38,12 @@ public class MDListsTest {
         String elem1 = "elem1";
         String elem2 = "elem2";
         checkTwoElements(elem1, elem2, construct(elem1, list(elem2)));
+    }
+
+    @Test
+    public void reverse() {
+        assertTrue(list(1, 2, 3).reverse().deepEquals(list(3, 2, 1)));
+        assertTrue(list(1, 2, 3, 4).reverse().deepEquals(list(4, 3, 2, 1)));
     }
 
     @Test

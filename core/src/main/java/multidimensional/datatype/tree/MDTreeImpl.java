@@ -1,5 +1,6 @@
 package multidimensional.datatype.tree;
 
+import multidimensional.datatype.deep.DeepStructure;
 import multidimensional.datatype.list.MDList;
 import multidimensional.datatype.list.MDLists;
 
@@ -37,8 +38,27 @@ public class MDTreeImpl<T> implements MDTree<T> {
     }
 
     @Override
-    public boolean deepEquals(MDTree<T> other) {
+    public MDList<MDTree<T>> getPath(MDTree<T> node) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean deepEquals(MDTree<T> other) {
+
+        MDTree<T> tree1 = this;
+        MDTree<T> tree2 = other;
+
+        if (tree1.isEmpty() && tree2.isEmpty()) {
+            return true;
+        } else if (tree1.isEmpty() || tree2.isEmpty()) {
+            return false;
+        }
+
+        if (!DeepStructure.deepEquals(tree1.getValue(), tree2.getValue())) {
+            return false;
+        }
+
+        return tree1.getChildren().deepEquals(tree2.getChildren());
     }
 
     @Override

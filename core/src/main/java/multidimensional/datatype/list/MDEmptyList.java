@@ -36,6 +36,11 @@ class MDEmptyList<T> implements MDList<T> {
     }
 
     @Override
+    public MDList<T> reverse() {
+        return this;
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             @Override

@@ -18,6 +18,11 @@ public class MDEmptyListTest {
     }
 
     @Test
+    public void reverse() {
+        checkEmpty(new MDEmptyList<>().reverse());
+    }
+
+    @Test
     public void iterator() {
         checkIterator(new MDEmptyList<>());
     }

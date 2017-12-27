@@ -39,6 +39,19 @@ public class MDListImplTest {
     }
 
     @Test
+    public void reverse() {
+
+        String elem1 = "elem1";
+        String elem2 = "elem2";
+
+        MDList<String> list1 = new MDListImpl<>(elem1, new MDEmptyList<>());
+        checkOneElement(elem1, list1.reverse());
+
+        MDList<String> list2 = new MDListImpl<>(elem2, new MDListImpl<>(elem1, new MDEmptyList<>()));
+        checkTwoElements(elem1, elem2, list2.reverse());
+    }
+
+    @Test
     public void testDeepEquals() {
         String elem = "elem";
         MDList<String> list1 = new MDListImpl<>(elem, new MDEmptyList<>());

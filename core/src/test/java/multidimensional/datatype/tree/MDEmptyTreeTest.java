@@ -1,5 +1,6 @@
 package multidimensional.datatype.tree;
 
+import multidimensional.datatype.list.MDLists;
 import org.junit.Test;
 
 import static multidimensional.datatype.tree.MDTreeTestUtils.*;
@@ -12,6 +13,15 @@ public class MDEmptyTreeTest {
         checkEmpty(new MDEmptyTree<>());
     }
 
+    @Test
+    public void path() {
+        checkPath(new MDEmptyTree<>(), new MDEmptyTree<>(), MDLists.list(new MDEmptyTree<>()));
+    }
+
+    @Test
+    public void deepEquals() {
+        checkDeepEquals(new MDEmptyTree<>(), new MDEmptyTree<>(), true);
+    }
 
     @Test
     public void deepToString() {

@@ -49,6 +49,20 @@ class MDListImpl<T> implements MDList<T> {
     }
 
     @Override
+    public MDList<T> reverse() {
+
+        MDList<T> list1 = this;
+        MDList<T> list2 = MDLists.empty();
+
+        while (!list1.isEmpty()) {
+            list2 = MDLists.construct(list1.getHead(), list2);
+            list1 = list1.getTail();
+        }
+
+        return list2;
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
 
@@ -79,16 +93,7 @@ class MDListImpl<T> implements MDList<T> {
             T elem1 = list1.getHead();
             T elem2 = list2.getHead();
 
-            if (elem1 instanceof DeepStructure && elem2 instanceof DeepStructure) {
-
-                DeepStructure deepElem1 = (DeepStructure) elem1;
-                DeepStructure deepElem2 = (DeepStructure) elem2;
-
-                if (!deepElem1.deepEquals(deepElem2)) {
-                    return false;
-                }
-
-            } else if (!elem1.equals(elem2)) {
+            if (!DeepStructure.deepEquals(elem1, elem2)) {
                 return false;
             }
 

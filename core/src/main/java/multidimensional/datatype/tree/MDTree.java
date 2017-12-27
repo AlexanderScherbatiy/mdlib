@@ -10,4 +10,7 @@ public interface MDTree<T> extends DeepStructure<MDTree<T>> {
     T getValue();
 
     MDList<MDTree<T>> getChildren();
+
+    MDList<MDTree<T>> getPath(MDTree<T> node);
+
 }
