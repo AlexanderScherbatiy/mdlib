@@ -5,6 +5,10 @@ import multidimensional.datatype.list.MDLists;
 
 public class MDTrees {
 
+    public static <T> MDTree<T> empty() {
+        return new MDEmptyTree<>();
+    }
+
     public static <T> MDTree<T> tree(T value, MDList<MDTree<T>> children) {
         return new MDTreeImpl<T>(value, children);
     }

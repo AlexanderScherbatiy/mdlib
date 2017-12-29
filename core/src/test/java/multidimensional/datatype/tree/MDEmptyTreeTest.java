@@ -15,7 +15,7 @@ public class MDEmptyTreeTest {
 
     @Test
     public void path() {
-        checkPath(new MDEmptyTree<>(), new MDEmptyTree<>(), MDLists.list(new MDEmptyTree<>()));
+        checkPath(new MDEmptyTree<>(), new MDEmptyTree<>(), MDLists.empty());
     }
 
     @Test

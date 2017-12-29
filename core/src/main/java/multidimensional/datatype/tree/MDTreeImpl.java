@@ -39,7 +39,20 @@ public class MDTreeImpl<T> implements MDTree<T> {
 
     @Override
     public MDList<MDTree<T>> getPath(MDTree<T> node) {
-        throw new UnsupportedOperationException();
+
+        if (this == node) {
+            return MDLists.list(node);
+        }
+
+        for (MDTree<T> child : this.getChildren()) {
+            MDList<MDTree<T>> path = child.getPath(node);
+
+            if (!path.isEmpty()) {
+                return MDLists.construct(this, path);
+            }
+        }
+
+        return MDLists.empty();
     }
 
     @Override

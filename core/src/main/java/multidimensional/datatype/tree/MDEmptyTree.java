@@ -24,7 +24,7 @@ public class MDEmptyTree<T> implements MDTree<T> {
 
     @Override
     public MDList<MDTree<T>> getPath(MDTree<T> node) {
-        return node.isEmpty() ? MDLists.list(this) : null;
+        return MDLists.empty();
     }
 
     @Override
